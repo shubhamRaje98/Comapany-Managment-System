@@ -41,13 +41,13 @@ class SearchLeave implements ActionListener{
         l5.add(t);*/
 
         b=new JButton("Search");
-        b.setBounds(240,100,100,30);
+        b.setBounds(240,150,100,30);
         b.addActionListener(this);
         l5.add(b);
 
 
         b2=new JButton("Cancel");
-        b2.setBounds(360,100,100,30);
+        b2.setBounds(360,150,100,30);
         b2.addActionListener(this);
         l5.add(b2);
 
