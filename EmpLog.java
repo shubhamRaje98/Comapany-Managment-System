@@ -25,9 +25,9 @@ public class EmpLog implements ActionListener
         l3.setBounds(410,40,150,140);
         f.add(l3);
 
-        l1 = new JLabel("Employee ID : ");
+        l1 = new JLabel("Enter the master password : ");
 		l1.setFont(new Font("serif",Font.BOLD,18));
-		l1.setBounds(20,50,150,20);
+		l1.setBounds(110,50,300,20);
 		f.add(l1);
 
 		l2 = new JLabel("Password : ");
@@ -35,11 +35,11 @@ public class EmpLog implements ActionListener
 		l2.setBounds(20,110,140,20);
 		f.add(l2);
 
-		t1 = new JTextField();
+		/*t1 = new JTextField();
 		t1.setBorder(null);
 		t1.setBounds(170,45,200,25);
 		//t1.setBackground(Color.decode("#7785cb"));
-		f.add(t1);
+		f.add(t1);*/
 
 		p1 = new JPasswordField();
 		p1.setBounds(170,105,200,25);
@@ -76,11 +76,11 @@ public class EmpLog implements ActionListener
 		try
 		{
 			conn c1 = new conn();
-			String u = t1.getText();
+			//String u = t1.getText();
 			String v = new String(p1.getPassword());
 			//int n = (int)t1.getText();
 
-			String q = "select emp_id,E_pass from employee where emp_id ='"+u+"' and E_pass='"+v+"';";
+			String q = "select emp_id,E_pass from employee where E_pass='"+v+"';";
 			ResultSet rs = c1.s.executeQuery(q);
 			if(rs.next())
 			{
