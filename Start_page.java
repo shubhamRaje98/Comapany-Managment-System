@@ -18,10 +18,10 @@ class Page implements ActionListener
 {
 	JFrame f; 
 	JLabel l1,id;
-	JButton b,b1;
+	JButton b,b1,b2;
 	public Page()
 	{
-		f = new JFrame("CMS | Welcome");
+		f = new JFrame("EMS | Welcome");
 		//f.setBackground(Color.blue);
 		f.setResizable(false);
 		f.setLayout(null);
@@ -43,6 +43,7 @@ class Page implements ActionListener
 		l1.add(lo);
 
 		ImageIcon ic = new ImageIcon(ClassLoader.getSystemResource("icons/continue.png"));
+		ImageIcon ic1 = new ImageIcon(ClassLoader.getSystemResource("icons/emp2.png"));
 
 	//	JLabel l2 = new JLabel();
 	//	l2.setBounds(0,0,1400,750);
@@ -59,17 +60,25 @@ class Page implements ActionListener
 		b.setBounds(1200,600,100,40);
 		b.addActionListener(this);
 
+		b1 = new JButton("Employee Login");
+		b1.setBackground(myColor);
+		b1.setBackground(Color.BLACK);
+		b1.setBounds(1170,530,150,40);
+		b1.addActionListener(this);
+		b1.setBorder(null);
+
 		id=new JLabel();
 		id.setBounds(0,0,1360,750);
 		id.setLayout(null);
 
-		JLabel lid = new JLabel("Company Management System");
+		JLabel lid = new JLabel("Employee Management System");
 		lid.setBounds(550,320,300,100);
 		lid.setFont(new Font("Harrington",Font.BOLD,15));
 		
 		lid.setForeground(Color.BLACK);
 		id.add(lid);
 	    id.add(b);
+	    id.add(b1);
 		l1.add(id);
 
 		f.getContentPane().setBackground(Color.WHITE);
@@ -83,6 +92,7 @@ class Page implements ActionListener
 		{
 			lid.setVisible(false);
 			b.setBackground(myColor1);
+			b1.setBackground(myColor1);
 			try{
 				Thread.sleep(500);
 
@@ -91,6 +101,7 @@ class Page implements ActionListener
 			}
 			lid.setVisible(true);
 			b.setBackground(myColor);
+			b1.setBackground(myColor);
 			try
 			{
 				Thread.sleep(500);
@@ -107,6 +118,10 @@ class Page implements ActionListener
      	   System.out.println("Button is clicked");
      	   f.setVisible(false);
      	   new Login_page();
+        }
+        if(ae.getSource()==b1)
+        {
+        	new EmpLog();
         }
         
      }	
