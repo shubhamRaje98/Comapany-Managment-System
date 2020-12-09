@@ -7,10 +7,11 @@ import javax.swing.table.DefaultTableModel;
 
 class Leave_man implements ActionListener
 {
-	JFrame f;
+	static JFrame f;
     JLabel l1,l2,l3,l4,l5,l6,l7,l8,l9;
     JTextField t1,t2,t3,t4,t5,t6;
-    String status,ids,e_id;
+    static String status="Not Applicable";
+    String ids,e_id;
     JButton b1,b2,b3,b4;
     JComboBox c1;
 
@@ -102,11 +103,11 @@ class Leave_man implements ActionListener
         t6.setBorder(null);
         l1.add(t6);
       */
-        l9 = new JLabel("jdfljslfjslkfjsd");
+       /* l9 = new JLabel(stat);
         l9.setBounds(1170,70,200,40);
         l9.setFont(new Font("Harrington",Font.BOLD,20));
         l9.setForeground(Color.BLACK);
-        l1.add(l9);
+        l1.add(l9); */
 
         b1=new JButton("Apply");
         b1.setBounds(450,360,150,50);
@@ -165,18 +166,21 @@ class Leave_man implements ActionListener
        
  //****************************
        //    System.out.println(e_id);
-        l8 = new JLabel("Leave Status : ");
+       /*l8 = new JLabel("Leave Status : ");
         l8.setBounds(950,70,200,40);
         l8.setFont(new Font("Harrington",Font.BOLD,20));
         l8.setForeground(Color.BLACK);
-        l1.add(l8);
+        l1.add(l8);*/
 
         f.setVisible(true);
         f.setDefaultCloseOperation(3);
       //  f.setResizable(false);
         f.setSize(1370,740);
         f.setLocation(0,0);
+
     }
+
+
     public void actionPerformed(ActionEvent ae)
     {
         String bb = t1.getText();
@@ -202,10 +206,13 @@ class Leave_man implements ActionListener
                 status = rs.getString("L_status");
                 
             }
+            JOptionPane.showMessageDialog(null,"Your Leave Status is : "+status);
+            status = "Not Applicable";
         }catch(Exception ce){
             ce.printStackTrace();
         }
         System.out.println(status+" is status"); // Problem is here
+
 
         }
         //String a=e_id;
@@ -228,6 +235,7 @@ class Leave_man implements ActionListener
     public static void main(String args[])
     {
     	new Leave_man();
+        f.validate();
     }
 
 
